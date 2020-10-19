@@ -15,14 +15,16 @@ public class CabInvoiceGenerator {
 		rideList.add(new FareCalculator(distance,time));
 	}
 	
-	public static void returnTotalFare()
+	public static void generateInvoice()
 	{
 		int aggregateFare=0;
 		for(FareCalculator fare: rideList)
 		{
 			aggregateFare+=fare.totalFare;
 		}
+		System.out.println("Number of Rides taken: " + rideList.size());
 		System.out.println("Aggregate Fare: " + aggregateFare);
+		System.out.println("Average Fare: " + (double)(aggregateFare/rideList.size()));
 	}
 	
 	public static void main(String args[])
@@ -36,6 +38,6 @@ public class CabInvoiceGenerator {
 			System.out.println("Another Ride Taken? (Y/N)");
 			check=in.next().charAt(0);	
 		}
-		returnTotalFare();
+		generateInvoice();
 	}
 }
