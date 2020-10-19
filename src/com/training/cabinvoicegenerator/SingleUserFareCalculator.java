@@ -9,16 +9,16 @@ public class SingleUserFareCalculator {
 	
 	public SingleUserFareCalculator()
 	{
-		rideList.add(new FareCalculator(0,0));
+		rideList.add(new FareCalculator(FareCalculator.RideType.EMPTY,0,0));
 	}
 	
-	public void takeRideInput(String userID, SingleUserFareCalculator userDetail) {
+	public void takeRideInput(FareCalculator.RideType type, String userID, SingleUserFareCalculator userDetail) {
 		Scanner in=new Scanner(System.in);
 		System.out.println("Enter distance: ");		
 		int distance=in.nextInt();
 		System.out.println("Enter time: ");		
 		int time=in.nextInt();
-		userDetail.rideList.add(new FareCalculator(distance,time));
+		userDetail.rideList.add(new FareCalculator(type,distance,time));
 	}
 	
 	public void generateInvoice(String userID, SingleUserFareCalculator userDetail)
