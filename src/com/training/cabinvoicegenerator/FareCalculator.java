@@ -4,7 +4,7 @@ public class FareCalculator {
 	
 	public final int farePerDistance=10;
 	public final int farePerTime=1;
-	public final int minFare=5;
+	public int minFare;
 	public int distance;
 	public int time;
 	public int totalFare;
@@ -13,6 +13,10 @@ public class FareCalculator {
 	{
 		this.distance=distance;
 		this.time=time;
+		if(distance==0 && time==0)
+			minFare=0;
+		else
+			minFare=5;
 		totalFare=minFare+farePerDistance*distance+farePerTime*time;
 	}
 }
